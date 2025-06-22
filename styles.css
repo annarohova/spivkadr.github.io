@@ -7,6 +7,75 @@ body {
   line-height: 1.6;
 }
 
+.early-bird {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.early-bird h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.early-bird .early-note {
+  color: #555;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.pricing-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tariff {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 300px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.tariff h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.tariff .price {
+  font-weight: bold;
+  color: #c0392b;
+}
+
+.tariff ul {
+  padding-left: 1.2em;
+  margin: 1em 0;
+}
+
+.tariff li {
+  margin-bottom: 0.5em;
+}
+
+.tariff .button {
+  display: inline-block;
+  margin-top: 10px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+}
+
+.tariff .button:hover {
+  background: #333;
+}
+
+
 .photo-gallery {
   max-width: 800px;
   margin: 80px auto;
