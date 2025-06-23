@@ -7,6 +7,128 @@ body {
   color: #111;
   line-height: 1.6;
 }
+.early-bird {
+  background-color: #fff8e1; /* світло-жовтий фон для акценту */
+  border: 2px solid #ffd54f; /* жовта рамка */
+  padding: 30px 20px;
+  margin: 40px auto;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 213, 79, 0.3);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.early-bird h2 {
+  font-size: 2.4rem;
+  color: #f9a825; /* темно-жовтий відтінок */
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.early-bird .early-note {
+  font-size: 1.1rem;
+  color: #795548; /* коричневий для підзаголовку */
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.pricing-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.tariff {
+  background: #fffbea;
+  border: 1.5px solid #fbc02d;
+  border-radius: 10px;
+  padding: 25px 30px;
+  width: 320px;
+  box-shadow: 0 2px 8px rgba(251, 192, 45, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.tariff:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(251, 192, 45, 0.5);
+}
+
+.tariff h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #fbc02d;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #f57f17; /* темніший жовтий */
+}
+
+.tariff ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  color: #5d4037;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.tariff ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.tariff ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #fbc02d;
+  font-weight: 700;
+}
+
+.tariff ul li:first-child::before {
+  content: '📼';
+  color: #fbc02d;
+}
+
+.tariff ul li:nth-child(2):not(:has(strike))::before {
+  content: '✅';
+}
+
+.tariff ul li:nth-child(2):has(strike)::before {
+  content: '❌';
+}
+
+.tariff ul li:nth-child(3):has(strike)::before {
+  content: '❌';
+}
+
+.button {
+  background-color: #fbc02d;
+  color: #4e342e;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #f57f17;
+  color: #fff;
+}
 
 .pricing-cards {
   display: flex;
