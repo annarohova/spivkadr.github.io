@@ -109,7 +109,23 @@
 </head>
 <body>
 
- 
+ <script>
+  async function pay() {
+    const email = prompt("Введіть вашу email:");
+    const amount = 590; // або значення з форми
+
+    const res = await fetch("https://spivkadr-pay-server.onrender.com/create-invoice", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, amount })
+    });
+    const data = await res.json();
+    if (data.success) location.href = data.url;
+    else alert("Помилка створення платежу");
+  }
+</script>
+
+<button onclick="pay()">Оплатити курс</button>
 
   <section class="hero">
     <h1>[спів]:кадр</h1>
