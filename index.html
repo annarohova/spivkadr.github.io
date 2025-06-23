@@ -154,39 +154,129 @@
 
 
   
-<section class="faq">
-  <h2>Часті запитання</h2>
+<section class="faq-section">
+  <h2>Часті питання</h2>
 
   <div class="faq-item">
-    <h3>Скільки триває курс?</h3>
-    <p>Курс складається з 5 модулів. Ти можеш проходити їх у власному темпі — хоч за один день, хоч поступово протягом кількох тижнів.</p>
+    <button class="faq-question">Скільки триває курс?</button>
+    <div class="faq-answer">
+      <p>Курс складається з 5 модулів. Ти можеш проходити їх у власному темпі — хоч за один день, хоч поступово протягом кількох тижнів.</p>
+    </div>
   </div>
 
   <div class="faq-item">
-    <h3>Чи потрібна професійна камера або досвід?</h3>
-    <p>Ні. Курс створений для фотографів, які працюють з людьми — незалежно від рівня технічної підготовки. Головне тут — комунікація, а не об’єктив.</p>
+    <button class="faq-question">Чи потрібна професійна камера або досвід?</button>
+    <div class="faq-answer">
+      <p>Ні. Курс створений для фотографів, які працюють з людьми — незалежно від рівня технічної підготовки. Головне тут — комунікація, а не об’єктив.</p>
+    </div>
   </div>
 
   <div class="faq-item">
-    <h3>Що я отримаю після оплати?</h3>
-    <p>Одразу після оплати ти отримаєш лист із доступом до всіх матеріалів: відеолекцій, PDF, завдань і, якщо потрібно — запрошення до Telegram-спільноти.</p>
+    <button class="faq-question">Що я отримаю після оплати?</button>
+    <div class="faq-answer">
+      <p>Одразу після оплати ти отримаєш лист із доступом до всіх матеріалів: відеолекцій, PDF, завдань і, якщо потрібно — запрошення до Telegram-спільноти.</p>
+    </div>
   </div>
 
   <div class="faq-item">
-    <h3>Чи буде підтримка або зворотний зв’язок?</h3>
-    <p>У базовому пакеті — ні, але в розширеному є доступ до спільноти з можливістю ставити питання, обговорювати свої проєкти і ділитись прогресом.</p>
+    <button class="faq-question">Чи буде підтримка або зворотний зв’язок?</button>
+    <div class="faq-answer">
+      <p>У базовому пакеті — ні, але в розширеному є доступ до спільноти з можливістю ставити питання, обговорювати свої проєкти і ділитись прогресом.</p>
+    </div>
   </div>
 
   <div class="faq-item">
-    <h3>Як довго зберігається доступ?</h3>
-    <p>Безстроково. Ти можеш повертатись до матеріалів будь-коли, переглядати лекції повторно і проходити завдання у своєму ритмі.</p>
+    <button class="faq-question">Як довго зберігається доступ?</button>
+    <div class="faq-answer">
+      <p>Безстроково. Ти можеш повертатись до матеріалів будь-коли, переглядати лекції повторно і проходити завдання у своєму ритмі.</p>
+    </div>
   </div>
 
   <div class="faq-item">
-    <h3>Чи буде сертифікат?</h3>
-    <p>Ні. Цей курс про практику і якість вашої практики.</p>
+    <button class="faq-question">Чи буде сертифікат?</button>
+    <div class="faq-answer">
+      <p>Ні. Цей курс про практику і якість вашої практики.</p>
+    </div>
   </div>
 </section>
+
+<style>
+  .faq-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+
+  .faq-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background-color: #f0f0f0;
+  }
+
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-question.active::after {
+    content: '−';
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    padding: 0 15px;
+  }
+
+  .faq-answer p {
+    margin: 10px 0 20px;
+  }
+
+  .faq-answer.show {
+    max-height: 500px; /* достатньо для тексту */
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const activeButton = document.querySelector('.faq-question.active');
+      if (activeButton && activeButton !== button) {
+        activeButton.classList.remove('active');
+        activeButton.nextElementSibling.classList.remove('show');
+      }
+      button.classList.toggle('active');
+      const answer = button.nextElementSibling;
+      answer.classList.toggle('show');
+    });
+  });
+</script>
 
   
   <!-- Placeholder for signup form or external link anchor -->
