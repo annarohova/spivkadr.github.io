@@ -8,6 +8,18 @@ body {
   line-height: 1.6;
 }
 
+.hero {
+  background: #1a1a1a url('your-image.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
 .hero h1 {
   font-size: 3rem;
   margin: 0;
