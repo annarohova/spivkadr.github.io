@@ -159,17 +159,41 @@
   </section>
 
   <section class="about">
-    <h2>Про авторку</h2>
-    <div class="about-content">
-      <img src="author-photo.jpg"/>
-      <div>
-        <p>Я — фотографка, дослідниця та спостерігачка.</p>
-        <p>Маю базову освіту з теоретичної фізики, ступінь магістерки з математики (Weizmann Institute) та кілька років PhD-досліджень у Швеції.</p>
-        <p>Мене цікавлять теми радикального прийняття, ескапізму, ментального здоров’я, невидимих станів, а також близькості й туги за домом.</p>
-        <p>У цьому курсі я говорю не про техніку — а про людяність.</p>
-      </div>
+  <h2>Про авторку</h2>
+  <div class="about-content">
+    <div class="about-photo"></div>
+    <div class="about-text">
+      <p>Я — фотографка, дослідниця та спостерігачка.</p>
+      <p>Маю базову освіту з теоретичної фізики, ступінь магістерки з математики (Weizmann Institute) та кілька років PhD-досліджень у Швеції.</p>
+      <p>Мене цікавлять теми радикального прийняття, ескапізму, ментального здоров’я, невидимих станів, а також близькості й туги за домом.</p>
+      <p>У цьому курсі я говорю не про техніку — а про людяність.</p>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+.about-content {
+  display: flex;
+  align-items: flex-start; /* Вирівнювання по верхньому краю */
+  gap: 20px; /* Відстань між фото і текстом */
+}
+
+.about-photo {
+  flex: 0 0 300px; /* фіксована ширина */
+  height: 400px;   /* висота блока з фото */
+  background-image: url('author-photo.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.about-text {
+  flex: 1; /* текст займає всю решту простору */
+  font-size: 18px;
+  line-height: 1.6;
+}
+</style>
 
   <section class="pricing">
     <h2>Формати участі</h2>
