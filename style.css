@@ -7,6 +7,17 @@ body {
   color: #111;
   line-height: 1.6;
 }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  padding: 0 15px;
+}
+.faq-answer.show {
+  max-height: 500px; /* достатньо для тексту */
+  padding: 10px 15px 20px;
+}
 .early-bird {
   background-color: #fff8e1; /* світло-жовтий фон для акценту */
   border: 2px solid #ffd54f; /* жовта рамка */
