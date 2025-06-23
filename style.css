@@ -8,6 +8,31 @@ body {
   line-height: 1.6;
 }
 
+.hero h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 1rem;
+}
+
+.section {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
 .module {
   display: flex;
   gap: 20px;
