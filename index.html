@@ -2,6 +2,27 @@
 <html lang="uk">
 <head>
 
+  <style>
+.photo-table {
+  width: 100%;
+  border-collapse: separate; /* Важливо для роботи border-spacing */
+  border-spacing: 10px 15px; /* 10px по горизонталі, 15px по вертикалі */
+  background-image: url('photo-background.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 20px; /* відступи навколо таблиці */
+  box-sizing: border-box;
+}
+
+.photo-table td {
+  background: rgba(255, 255, 255, 0.7); /* напівпрозорий фон для комірок, щоб текст було видно */
+  height: 80px;
+  width: 80px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 6px;
+}
+</style>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
