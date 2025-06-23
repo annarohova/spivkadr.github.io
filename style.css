@@ -7,9 +7,6 @@ body {
   line-height: 1.6;
 }
 
-
-.hero {
-  background-color: #2c3e50; /* темно-синій */
 }
 .faq {
   max-width: 800px;
@@ -41,7 +38,7 @@ body {
   position: relative;
   background: url('.hero {
   position: relative;
-  background: url('./img/DSC_0419_s.jpg') center/cover no-repeat;
+  background-image: url('./img/DSC_0419_s.jpg') center/cover no-repeat;
   color: white;
   text-align: center;
   display: flex;
