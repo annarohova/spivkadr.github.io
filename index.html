@@ -1,6 +1,41 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Таблиця з фоном у клітинках</title>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 600px;
+    height: 400px;
+  }
+  td {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    background-size: cover;      /* щоб фон масштабувався */
+    background-position: center; /* центр фонового зображення */
+  }
+
+  /* Фон у першій клітинці */
+  td.bg1 {
+    background-image: url('photo1.jpg');
+  }
+
+  /* Фон у другій клітинці */
+  td.bg2 {
+    background-image: url('photo2.jpg');
+  }
+
+  /* Фон у третій клітинці */
+  td.bg3 {
+    background-image: url('photo3.jpg');
+  }
+</style>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>[спів]:кадр — курс</title>
@@ -159,15 +194,18 @@
     </div>
   </section>
 
-  <section class="photo-gallery">
-    <table>
-      <tr>
-        <td><img src="photo1.jpg"/></td>
-        <td><img src="photo2.jpg"/></td>
-        <td><img src="photo3.jpg"/></td>
-      </tr>
-    </table>
-  </section>
+  <table>
+  <tr>
+    <td class="bg1"></td>
+    <td class="bg2"></td>
+    <td class="bg3"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
 
   
   <section class="early-bird">
