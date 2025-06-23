@@ -9,7 +9,7 @@ body {
 }
 
 .hero {
-  background: #1a1a1a url('your-image.jpg') center/cover no-repeat;
+  background: #1a1a1a url('img/DSC_0419_s.jpg') center/cover no-repeat;
   height: 100vh;
   display: flex;
   flex-direction: column;
