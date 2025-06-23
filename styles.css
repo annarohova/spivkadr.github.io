@@ -40,6 +40,36 @@ body {
 }
 
 .hero {
+  position: relative;
+  background: url('your-image.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* <- це затемнення */
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+.hero {
   background: #1a1a1a url('your-image.jpg') center/cover no-repeat;
   height: 100vh;
   display: flex;
