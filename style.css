@@ -8,6 +8,46 @@ body {
   line-height: 1.6;
 }
 
+.pricing {
+  max-width: 960px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.pricing-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 30px;
+  flex: 1 1 300px;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.card li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
 .hero {
   background: #1a1a1a url('img/DSC_0419_s.jpg') center/cover no-repeat;
   height: 100vh;
