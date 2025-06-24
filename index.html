@@ -307,25 +307,9 @@
     </div>
   </section>
 
-  <section id="signup-form" class="signup">
-    <h2>Записатися на курс</h2>
-    <form action="submit_form.php" method="post">
-      <label for="name">Ім’я:</label><br />
-      <input type="text" id="name" name="name" required /><br />
-
-      <label for="email">Email:</label><br />
-      <input type="email" id="email" name="email" required /><br />
-
-      <label for="tariff">Оберіть тариф:</label><br />
-      <select id="tariff" name="tariff" required>
-        <option value="">-- Оберіть тариф --</option>
-        <option value="basic">Базовий</option>
-        <option value="homework">З домашкою</option>
-      </select><br />
-
-      <button type="submit" class="button">Відправити</button>
-    </form>
-  </section>
+<a href="#" class="button js-pay-btn" data-amount="999">Записатися (Базовий)</a>
+<a href="#" class="button js-pay-btn" data-amount="2499">Записатися (З домашкою)</a>
+  
 
   <script>
     // Скрипт для FAQ — відкриття/закриття відповідей
@@ -351,6 +335,42 @@
       if (!active) {
         button.classList.add('active');
         button.nextElementSibling.classList.add('show');
+      }
+    });
+  });
+</script>
+
+<script>
+  // URL вашого бекенду
+  const API_URL = 'https://spivkadr-pay-server.onrender.com/create-invoice';
+
+  // Функція створення інвойсу
+  async function createInvoice(amount) {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: amount * 100,                 // сума у копійках
+        orderId: 'order-' + Date.now(),       // унікальний ID
+        description: 'Оплата курсу Spivkadr'  // опис платежу
+      })
+    });
+    if (!res.ok) throw new Error(res.statusText);
+    const { pageUrl } = await res.json();
+    return pageUrl;
+  }
+
+  // Прив’язка обробника до всіх кнопок
+  document.querySelectorAll('.js-pay-btn').forEach(btn => {
+    btn.addEventListener('click', async e => {
+      e.preventDefault();
+      try {
+        // Тут можна читати data-атрибут, наприклад data-amount:
+        const amount = btn.dataset.amount || 999; // дефолт 999 грн
+        const url = await createInvoice(amount);
+        window.location.href = url;
+      } catch (err) {
+        alert('Не вдалося створити платіж: ' + err.message);
       }
     });
   });
