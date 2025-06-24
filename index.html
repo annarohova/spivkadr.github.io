@@ -241,32 +241,31 @@
 </table> </center>
 
   
-  <section class="early-bird">
-    <h2>Для ранніх пташок 🐣</h2>
-    <p class="early-note">Спеціальна ціна до 30.06.2025:</p>
-    <div class="pricing-grid">
-      <div class="tariff">
-        <h3>Базовий — <span class="price">499 грн</span></h3>
-        <ul>
-          <li>📼 Доступ до всіх відео</li>
-          <li>❌ Без перевірки завдань</li>
-          <li>❌ Без спільноти</li>
-        </ul>
-        <a href="#signup-form" class="button">Записатись</a>
-      </div>
-      <div class="tariff">
-        <h3>З домашкою — <span class="price">1499 грн</span></h3>
-        <ul>
-          <li>📼 Усе з базового</li>
-          <li>✅ Перевірка домашніх завдань</li>
-          <li>✅ Telegram-ком’юніті</li>
-          <li>✅ Персональний фідбек</li>
-        </ul>
-        <a href="#signup-form" class="button">Записатись</a>
-      </div>
+<section class="early-bird">
+  <h2>Для ранніх пташок 🐣</h2>
+  <p class="early-note">Спеціальна ціна до 30.06.2025:</p>
+  <div class="pricing-grid">
+    <div class="tariff">
+      <h3>Базовий — <span class="price">499 грн</span></h3>
+      <ul>
+        <li>📼 Доступ до всіх відео</li>
+        <li>❌ Без перевірки завдань</li>
+        <li>❌ Без спільноти</li>
+      </ul>
+      <a href="#" class="button js-pay-btn" data-amount="499">Записатись</a>
     </div>
-  </section>
-
+    <div class="tariff">
+      <h3>З домашкою — <span class="price">1499 грн</span></h3>
+      <ul>
+        <li>📼 Усе з базового</li>
+        <li>✅ Перевірка домашніх завдань</li>
+        <li>✅ Telegram-ком’юніті</li>
+        <li>✅ Персональний фідбек</li>
+      </ul>
+      <a href="#" class="button js-pay-btn" data-amount="1499">Записатись</a>
+    </div>
+  </div>
+</section>
 
   <section class="faq-section">
     <h2>Часті питання</h2>
@@ -307,8 +306,7 @@
     </div>
   </section>
 
-<a href="#" class="button js-pay-btn" data-amount="999">Записатися (Базовий)</a>
-<a href="#" class="button js-pay-btn" data-amount="2499">Записатися (З домашкою)</a>
+
   
 
   <script>
@@ -341,34 +339,34 @@
 </script>
 
 <script>
-  // URL вашого бекенду
+  // URL вашого бекенду на Render
   const API_URL = 'https://spivkadr-pay-server.onrender.com/create-invoice';
 
-  // Функція створення інвойсу
+  // Функція для створення інвойсу
   async function createInvoice(amount) {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        amount: amount * 100,                 // сума у копійках
-        orderId: 'order-' + Date.now(),       // унікальний ID
-        description: 'Оплата курсу Spivkadr'  // опис платежу
+        amount: amount * 100,              // перетворюємо грн → копійки
+        orderId: 'order-' + Date.now(),    // унікальний ID
+        description: 'Оплата курсу Spivkadr'
       })
     });
     if (!res.ok) throw new Error(res.statusText);
-    const { pageUrl } = await res.json();
-    return pageUrl;
+    const { url, pageUrl, invoiceUrl } = await res.json();
+    // Monobank API повертає pageUrl або invoiceUrl
+    return pageUrl || invoiceUrl || url;
   }
 
-  // Прив’язка обробника до всіх кнопок
+  // Прив'язуємо обробник до всіх кнопок
   document.querySelectorAll('.js-pay-btn').forEach(btn => {
     btn.addEventListener('click', async e => {
       e.preventDefault();
       try {
-        // Тут можна читати data-атрибут, наприклад data-amount:
-        const amount = btn.dataset.amount || 999; // дефолт 999 грн
-        const url = await createInvoice(amount);
-        window.location.href = url;
+        const amount = Number(btn.dataset.amount);
+        const paymentUrl = await createInvoice(amount);
+        window.location.href = paymentUrl;
       } catch (err) {
         alert('Не вдалося створити платіж: ' + err.message);
       }
