@@ -459,5 +459,24 @@
     });
   });
 </script>
+
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const questions = document.querySelectorAll(".faq-question");
+
+    questions.forEach(function (question) {
+      question.addEventListener("click", function () {
+        // Перемикаємо клас active
+        this.classList.toggle("active");
+
+        // Знаходимо наступний елемент — відповідь
+        const answer = this.nextElementSibling;
+
+        // Перемикаємо клас show
+        answer.classList.toggle("show");
+      });
+    });
+  });
+</script>
 </body>
 </html>
