@@ -397,20 +397,7 @@
 
   
 
-  <script>
-    // Скрипт для FAQ — відкриття/закриття відповідей
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const active = button.classList.toggle('active');
-        const answer = button.nextElementSibling;
-        if (active) {
-          answer.classList.add('show');
-        } else {
-          answer.classList.remove('show');
-        }
-      });
-    });
-  </script>
+
 
 <script>
   document.querySelectorAll('.faq-question').forEach(button => {
