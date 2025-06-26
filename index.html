@@ -457,6 +457,21 @@
     });
   });
 </script>
-  
+
+
+ <script>
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      // Перемикаємо клас active у кнопки (питання)
+      question.classList.toggle('active');
+      
+      // Наступний sibling — це блок відповіді
+      const answer = question.nextElementSibling;
+      
+      // Перемикаємо показ відповіді
+      answer.classList.toggle('show');
+    });
+  });
+</script>
 </body>
 </html>
